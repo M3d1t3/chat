@@ -14,27 +14,57 @@
     <div id="bloque_entrada">
         <div id="form">
             <input id="nombre" type="text" name="" id="" placeholder="Nombre de usuario..."> <br>
-            <button id="btnNombre">ENTRAR!</button>
+            <button id="btnNombre" class="boton">ENTRAR!</button>
         </div>
     </div>
 
     <div id="bloque_chat">
-
+        <div id="form_chat">
+            <textarea name="" id="areaChat" cols="30" rows="10" readonly></textarea>
+            <textarea name="" id="msgChat" cols="30" rows="10"></textarea>
+            <button id="btnEnviar" class="botonXL">Enviar</button>
+        </div>
     </div>
 
     <script>
+        const socket = io.connect('http://localhost:5000'); 
+        let nombre;
+            
         $(document).ready(function(){
-            
-            let nombre;
-            
             $("#bloque_chat").hide();
 
             $("#btnNombre").click(function(){
                 if($("#nombre").val()!=""){
-
+                    nombre = $("#nombre").val();
+                    socket.emit('username', nombre);
+                    $("#bloque_entrada").hide();
+                    $("#bloque_chat").show(400);
                 }else{
-
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Debe agregar un nombre de usuario'
+                    })
                 }
+            });
+
+            $("#btnEnviar").click(function(){
+                if($("#msgChat").val()!=""){
+                    socket.emit('message', $("#msgChat").val());
+                    $("#msgChat").val('');
+                }
+            });
+
+            socket.on('response', function(msg){
+                $('#areaChat').append(msg + '\n');
+            });
+
+            socket.on('error', function(msg){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: msg
+                })
             });
         });
     </script>
