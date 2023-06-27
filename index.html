@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Aplicación de chat</title>
+</head>
+<body>
+    <div id="bloque_entrada">
+        <div id="form">
+            <input id="nombre" type="text" name="" id="" placeholder="Nombre de usuario..."> <br>
+            <button id="btnNombre">ENTRAR!</button>
+        </div>
+    </div>
+
+    <div id="bloque_chat">
+
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            
+            let nombre;
+            
+            $("#bloque_chat").hide();
+
+            $("#btnNombre").click(function(){
+                if($("#nombre").val()!=""){
+
+                }else{
+
+                }
+            });
+        });
+    </script>
+</body>
+</html>

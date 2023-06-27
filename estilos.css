@@ -1,0 +1,44 @@
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+#bloque_entrada{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #A9C52F;
+}
+
+#form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid grey;
+  padding: 20px;
+  background-color: #F7EEBB;
+}
+
+#nombre{
+    padding:10px 5px;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+#btnNombre{
+    padding: 5px;
+    color: white;
+    background-color: #283739;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
